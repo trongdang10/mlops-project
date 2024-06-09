@@ -11,6 +11,10 @@ stages:
       hash: md5
       md5: 5ef4b0a0304f4fb6d068974462a5c8a3
       size: 3590
+    - path: src/mlProject/constants/__init__.py
+      hash: md5
+      md5: 8a8dd7246eac0168b721b0123ccac383
+      size: 153
     - path: src/mlProject/entity/config_entity.py
       hash: md5
       md5: 870090fbd5eb1336b0b45a106d7b5674
@@ -64,3 +68,42 @@ stages:
       hash: md5
       md5: 585530a24f41939a8635ae20411c197b
       size: 71377
+  model_trainer:
+    cmd: python src/mlProject/pipeline/stage_04_model_trainer.py
+    deps:
+    - path: src/mlProject/components/model_trainer.py
+      hash: md5
+      md5: 57eff832f2533bf7747ddd549587922c
+      size: 936
+    - path: src/mlProject/config/configuration.py
+      hash: md5
+      md5: 5ef4b0a0304f4fb6d068974462a5c8a3
+      size: 3590
+    - path: src/mlProject/constants/__init__.py
+      hash: md5
+      md5: 8a8dd7246eac0168b721b0123ccac383
+      size: 153
+    - path: src/mlProject/entity/config_entity.py
+      hash: md5
+      md5: 870090fbd5eb1336b0b45a106d7b5674
+      size: 903
+    - path: src/mlProject/pipeline/stage_04_model_trainer.py
+      hash: md5
+      md5: 57d56b0c3c64cc1a68d57c23f42664be
+      size: 854
+    - path: src/mlProject/utils/common.py
+      hash: md5
+      md5: d2cb33c84a4098a5435bc3ee57587327
+      size: 2960
+    params:
+      config/config.yaml:
+        model_trainer:
+          root_dir: artifacts/model_trainer
+          train_data_path: artifacts/data_transformation/train.csv
+          test_data_path: artifacts/data_transformation/test.csv
+          model_name: model.joblib
+    outs:
+    - path: artifacts/model_trainer/model.joblib
+      hash: md5
+      md5: 96085ab00aad896bec378239a1b154d1
+      size: 1279
