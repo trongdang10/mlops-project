@@ -1,0 +1,12 @@
+stages:
+  data_ingestion:
+    cmd: python src/mlProject/pipeline/stage_01_data_ingestion.py
+    deps:
+    - src/mlProject/components/data_ingestion.py
+    - src/mlProject/config/configuration.py
+    - src/mlProject/entity/config_entity.py
+    - src/mlProject/pipeline/stage_01_data_ingestion.py
+    - src/mlProject/utils/common.py
+    outs:
+    - artifacts/data_ingestion/data.zip
+    - artifacts/data_ingestion/winequality-red.csv
