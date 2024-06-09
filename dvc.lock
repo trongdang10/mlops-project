@@ -28,3 +28,39 @@ stages:
       hash: md5
       md5: 86e6a2f694c57a675b3e2da6b95ff9ba
       size: 23
+  data_transformation:
+    cmd: python src/mlProject/pipeline/stage_03_data_transformation.py
+    deps:
+    - path: src/mlProject/components/data_transformation.py
+      hash: md5
+      md5: 639a30c517caa1f73267b5d59e0fdf02
+      size: 1168
+    - path: src/mlProject/config/configuration.py
+      hash: md5
+      md5: 5ef4b0a0304f4fb6d068974462a5c8a3
+      size: 3590
+    - path: src/mlProject/constants/__init__.py
+      hash: md5
+      md5: 8a8dd7246eac0168b721b0123ccac383
+      size: 153
+    - path: src/mlProject/entity/config_entity.py
+      hash: md5
+      md5: 870090fbd5eb1336b0b45a106d7b5674
+      size: 903
+    - path: src/mlProject/pipeline/stage_03_data_transformation.py
+      hash: md5
+      md5: f99dc96f8d75838e2134591b6553c54c
+      size: 1318
+    - path: src/mlProject/utils/common.py
+      hash: md5
+      md5: d2cb33c84a4098a5435bc3ee57587327
+      size: 2960
+    outs:
+    - path: artifacts/data_transformation/test.csv
+      hash: md5
+      md5: 7370d541e7bcab20389fa02bcbf5521e
+      size: 23855
+    - path: artifacts/data_transformation/train.csv
+      hash: md5
+      md5: 585530a24f41939a8635ae20411c197b
+      size: 71377

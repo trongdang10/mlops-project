@@ -9,3 +9,15 @@ stages:
     - src/mlProject/utils/common.py
     outs:
     - artifacts/data_validation/status.txt
+  data_transformation:
+    cmd: python src/mlProject/pipeline/stage_03_data_transformation.py
+    deps:
+    - src/mlProject/components/data_transformation.py
+    - src/mlProject/config/configuration.py
+    - src/mlProject/constants/__init__.py
+    - src/mlProject/entity/config_entity.py
+    - src/mlProject/pipeline/stage_03_data_transformation.py
+    - src/mlProject/utils/common.py
+    outs:
+    - artifacts/data_transformation/test.csv
+    - artifacts/data_transformation/train.csv
