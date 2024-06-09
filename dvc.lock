@@ -32,3 +32,31 @@ stages:
       hash: md5
       md5: 6a883fd98624e18c0b7ce251f4fab4fb
       size: 100951
+  data_validation:
+    cmd: python src/mlProject/pipeline/stage_02_data_validation.py
+    deps:
+    - path: src/mlProject/components/data_validation.py
+      hash: md5
+      md5: a3bfad6c56676c46144cd55d167bc349
+      size: 1102
+    - path: src/mlProject/config/configuration.py
+      hash: md5
+      md5: 5ef4b0a0304f4fb6d068974462a5c8a3
+      size: 3590
+    - path: src/mlProject/entity/config_entity.py
+      hash: md5
+      md5: 870090fbd5eb1336b0b45a106d7b5674
+      size: 903
+    - path: src/mlProject/pipeline/stage_02_data_validation.py
+      hash: md5
+      md5: 0d0c016948b85f8af46bda4ebe16e7e8
+      size: 879
+    - path: src/mlProject/utils/common.py
+      hash: md5
+      md5: d2cb33c84a4098a5435bc3ee57587327
+      size: 2960
+    outs:
+    - path: artifacts/data_validation/status.txt
+      hash: md5
+      md5: 86e6a2f694c57a675b3e2da6b95ff9ba
+      size: 23
