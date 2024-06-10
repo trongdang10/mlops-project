@@ -21,3 +21,15 @@ stages:
     - config/config.yaml
     - params.yaml
     - schema.yaml
+  data_validation:
+    cmd: python src/mlProject/pipeline/stage_02_data_validation.py
+    deps:
+    - artifacts/data_ingestion/winequality-red.csv
+    - src/mlProject/components/data_validation.py
+    params:
+    - config/config.yaml:
+      - data_validation.STATUS_FILE
+      - data_validation.root_dir
+      - data_validation.unzip_data_dir
+    outs:
+    - artifacts/data_validation/status.txt
