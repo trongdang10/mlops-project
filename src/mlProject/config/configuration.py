@@ -105,7 +105,7 @@ class ConfigurationManager:
             all_params=params,
             metric_file_name = config.metric_file_name,
             target_column = schema.name,
-            mlflow_uri="https://dagshub.com/trongdang10/mlops-project.mlflow",
+            mlflow_uri="https://dagshub.com/trongdang10/mlops-wine-quality.mlflow",
            
         )
 
