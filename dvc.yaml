@@ -6,6 +6,7 @@ stages:
     - src/mlProject/config/configuration.py
     - src/mlProject/entity/config_entity.py
     - src/mlProject/utils/common.py
+    - config/config.yaml
     params:
     - config/config.yaml:
       - data_ingestion.local_data_file
@@ -21,6 +22,8 @@ stages:
     - artifacts/data_ingestion/winequality-red.csv
     - src/mlProject/components/data_validation.py
     - src/mlProject/pipeline/stage_02_data_validation.py
+    - schema.yaml
+    - config/config.yaml
     params:
     - config/config.yaml:
       - data_validation.STATUS_FILE
@@ -34,6 +37,7 @@ stages:
     - artifacts/data_ingestion/winequality-red.csv
     - src/mlProject/components/data_transformation.py
     - src/mlProject/pipeline/stage_03_data_transformation.py
+    - config/config.yaml
     params:
     - config/config.yaml:
       - data_transformation.root_dir
@@ -62,6 +66,8 @@ stages:
     - artifacts/model_trainer/model.joblib
     - src/mlProject/components/model_evaluation.py
     - src/mlProject/pipeline/stage_05_model_evaluation.py
+    - params.yaml
+    - config/config.yaml
     params:
     - params.yaml:
       - ElasticNet.alpha
