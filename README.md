@@ -62,7 +62,7 @@ open up you local host and port
 ### dagshub
 [dagshub](https://dagshub.com/)
 
-MLFLOW_TRACKING_URI=https://dagshub.com/trongdang10/mlops-project.mlflow \
+MLFLOW_TRACKING_URI=https://dagshub.com/trongdang10/mlops-wine-quality.mlflow \
 MLFLOW_TRACKING_USERNAME=trongdang10 \
 MLFLOW_TRACKING_PASSWORD=HASD123566628999123AA2231 \
 python script.py
@@ -71,7 +71,7 @@ Run this to export as env variables:
 
 ```bash
 
-export MLFLOW_TRACKING_URI=https://dagshub.com/trongdang10/mlops-project.mlflow 
+export MLFLOW_TRACKING_URI=https://dagshub.com/trongdang10/mlops-wine-quality.mlflow
 
 export MLFLOW_TRACKING_USERNAME=trongdang10 
 
@@ -79,5 +79,3 @@ export MLFLOW_TRACKING_PASSWORD=HASD123566628999123AA2231
 
 ```
 
-
-## This is a large change
