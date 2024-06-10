@@ -56,3 +56,23 @@ stages:
       - model_trainer.train_data_path
     outs:
     - artifacts/model_trainer/model.joblib
+  model_evaluation:
+    cmd: python src/mlProject/pipeline/stage_05_model_evaluation.py
+    deps:
+    - artifacts/data_transformation/test.csv
+    - artifacts/model_trainer/model.joblib
+    - src/mlProject/components/model_evaluation.py
+    - src/mlProject/pipeline/stage_05_model_evaluation.py
+    params:
+    - params.yaml:
+      - ElasticNet.alpha
+      - ElasticNet.l1_ratio
+    - schema.yaml:
+      - TARGET_COLUMN.name
+    - config/config.yaml:
+      - model_evaluation.metric_file_name
+      - model_evaluation.model_path
+      - model_evaluation.root_dir
+      - model_evaluation.test_data_path
+    outs:
+    - artifacts/model_evaluation/metrics.json
