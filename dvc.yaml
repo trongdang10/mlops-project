@@ -15,12 +15,6 @@ stages:
     outs:
     - artifacts/data_ingestion/data.zip
     - artifacts/data_ingestion/winequality-red.csv
-  constants:
-    cmd: python src/mlProject/constants/__init__.py
-    deps:
-    - config/config.yaml
-    - params.yaml
-    - schema.yaml
   data_validation:
     cmd: python src/mlProject/pipeline/stage_02_data_validation.py
     deps:
@@ -41,6 +35,10 @@ stages:
     - artifacts/data_ingestion/winequality-red.csv
     - src/mlProject/components/data_transformation.py
     - src/mlProject/pipeline/stage_03_data_transformation.py
+    params:
+    - config/config.yaml:
+      - data_transformation.root_dir
+      - data_transformation.data_path
     outs:
     - artifacts/data_transformation/test.csv
     - artifacts/data_transformation/train.csv

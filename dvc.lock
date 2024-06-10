@@ -82,22 +82,26 @@ stages:
       hash: md5
       md5: f99dc96f8d75838e2134591b6553c54c
       size: 1318
+    params:
+      config/config.yaml:
+        data_transformation.data_path: artifacts/data_ingestion/winequality-red.csv
+        data_transformation.root_dir: artifacts/data_transformation
     outs:
     - path: artifacts/data_transformation/test.csv
       hash: md5
-      md5: f5af0153fd67770da59041abb3094dbb
-      size: 23932
+      md5: 3d25a7886a4e9af03152ad0eccd89aa5
+      size: 23780
     - path: artifacts/data_transformation/train.csv
       hash: md5
-      md5: 3fb5148cb92cb33cf0e222bd5064daae
-      size: 71300
+      md5: e9df9e2ee7f0d240d5f5ab06d1b4a9c3
+      size: 71452
   model_trainer:
     cmd: python src/mlProject/pipeline/stage_04_model_trainer.py
     deps:
     - path: artifacts/data_transformation/train.csv
       hash: md5
-      md5: 3fb5148cb92cb33cf0e222bd5064daae
-      size: 71300
+      md5: e9df9e2ee7f0d240d5f5ab06d1b4a9c3
+      size: 71452
     - path: src/mlProject/components/model_trainer.py
       hash: md5
       md5: 57eff832f2533bf7747ddd549587922c
@@ -115,20 +119,5 @@ stages:
     outs:
     - path: artifacts/model_trainer/model.joblib
       hash: md5
-      md5: 7fe32939ac9a96dd35f1d134650f9240
+      md5: a1009c6af9b24f045b424232dcc24d38
       size: 1279
-  constants:
-    cmd: python src/mlProject/constants/__init__.py
-    deps:
-    - path: config/config.yaml
-      hash: md5
-      md5: fe94cb9afdc9b9c99ec71d9e48f83e3e
-      size: 1016
-    - path: params.yaml
-      hash: md5
-      md5: 34d517779c23d01b3492c05ced1ff319
-      size: 42
-    - path: schema.yaml
-      hash: md5
-      md5: 4f468903278f2ec0b2ae9fc320f89490
-      size: 339
