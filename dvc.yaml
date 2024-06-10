@@ -41,10 +41,6 @@ stages:
     - artifacts/data_ingestion/winequality-red.csv
     - src/mlProject/components/data_transformation.py
     - src/mlProject/pipeline/stage_03_data_transformation.py
-    params:
-    - config/config.yaml:
-      - config/config.yaml:data_transformation.root_dir
-	    - config/config.yaml:data_transformation.data_path
     outs:
     - artifacts/data_transformation/test.csv
     - artifacts/data_transformation/train.csv
