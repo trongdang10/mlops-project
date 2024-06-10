@@ -16,3 +16,9 @@ stages:
     outs:
     - artifacts/data_ingestion/data.zip
     - artifacts/data_ingestion/winequality-red.csv
+  constants:
+    cmd: python src/mlProject/constants/__init__.py
+    deps:
+    - config/config.yaml
+    - params.yaml
+    - schema.yaml
