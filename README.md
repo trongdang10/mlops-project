@@ -7,7 +7,7 @@ The workflows will proceed as follows:
 1. Create `setup.py` using `setuptools`, facilitating easier management of dependencies from `./src`.
 2. Implement logging in `./src/mlProject/__init__.py`, ensuring that each executed `.py` file is logged in the `/logs` directory for easier tracking.
 3. Develop reusable functions in `src/mlProject/utils/common.py` to be used throughout the project.
-4. Create a `constants __init__.py` in `src/mlProject/utils/common.py` to retrieve parameters from `schema.yaml`, `params.yaml`, and `config/config.yaml`.
+4. Create `__init__.py` in `src/mlProject/constants/__init__.py` to retrieve parameters from `schema.yaml`, `params.yaml`, and `config/config.yaml`.
 5. Pipeline process:
     - We have five pipelines named:
         - `stage_01_data_ingestion.py`
@@ -15,7 +15,7 @@ The workflows will proceed as follows:
         - `stage_03_data_transformation.py`
         - `stage_04_model_trainer.py`
         - `stage_05_model_evaluation.py`
-    - For each stage, the workflow includes:
+    - For each stage, the workflow includes: (each stage will be tested first in `./notebook`)
         1. Updating `config/config.yaml`
         2. Updating `schema.yaml` #__ this will be only in stage_02_04_05
         3. Updating `params.yaml` #__ this will be only in stage_04_05
