@@ -2,43 +2,43 @@
 
 ## Workflows
 
-My workflows will look like this:
-1. create setuptools in setup.py, which makes it easier when calling dependencies from ./src
-2. create logging in ./src/mlProject/__init__.py, so that everytime a .py file is executed, it will be listed in /logs file, this makes the tracking process easier
-3. create some functions in src\mlProject\utils\common.py that will be reused during the project
-4. given following files, create a constants __init__.py in src\mlProject\utils\common.py that will retrive the parameters from schema.yaml, params.yaml, config/config.yaml.
-5. Pipeline:
-    we have in total 5 pipelines named: 
-        - "stage_01_data_ingestion.py", 
-        - "stage_02_data_validation.py",
-        - "stage_03_data_transformation.py",
-        - "stage_04_model_trainer.py",
-        - "stage_05_model_evaluation.py"
-    In each stage the workflow will be as follows:
-    1. Update config\config.yaml
-    2. Update schema.yaml
-    3. Update params.yaml
-    4. Update the src\mlProject\entity\config_entity.py
-    5. Update the configuration manager in src\mlProject\config\configuration.py
-    6. Update the conponents in src\mlProject\components
-    7. Update the pipeline in src\mlProject\pipeline
-    8. Update the main.py (which will run all stages in one shot)
-6. update prediction.py, which will predict based on a trained model from "stage_04_model_trainer.py".
-7. And in the end, everything in app.py, which also performs a prediction on a web app
+My workflows will proceed as follows:
+
+1. Create `setup.py` using `setuptools`, facilitating easier management of dependencies from `./src`.
+2. Implement logging in `./src/mlProject/__init__.py`, ensuring that each executed `.py` file is logged in the `/logs` directory for easier tracking.
+3. Develop reusable functions in `src/mlProject/utils/common.py` to be used throughout the project.
+4. Create a `constants __init__.py` in `src/mlProject/utils/common.py` to retrieve parameters from `schema.yaml`, `params.yaml`, and `config/config.yaml`.
+5. Pipeline process:
+    - We have five pipelines named:
+        - `stage_01_data_ingestion.py`
+        - `stage_02_data_validation.py`
+        - `stage_03_data_transformation.py`
+        - `stage_04_model_trainer.py`
+        - `stage_05_model_evaluation.py`
+    - For each stage, the workflow includes:
+        1. Updating `config/config.yaml`
+        2. Updating `schema.yaml`
+        3. Updating `params.yaml`
+        4. Updating `src/mlProject/entity/config_entity.py`
+        5. Updating the configuration manager in `src/mlProject/config/configuration.py`
+        6. Updating components in `src/mlProject/components`
+        7. Updating the pipeline in `src/mlProject/pipeline`
+        8. Updating `main.py` to run all stages in sequence
+6. Update `prediction.py` to make predictions using the trained model from `stage_04_model_trainer.py`.
+7. Finally, integrate Training- and Prediction-pipeline into `app.py`, which will perform training and prediction on an web app
+    *note: **@app.route('/train',methods=['GET'])  # route to train the pipeline** will re-execute the training pipeline, which will be used for the prediction.
 
 
 ### DVC tracking Pipeline is displaying in a remote repo on [dagshub](https://dagshub.com/trongdang10/mlops-wine-quality)
 
 # How to run?
-##### note: you might need MLflow TOKEN to load a prediction service, which can be regenerated on [dagshub](https://dagshub.com/), details will be highlighed at the end.
+##### Note: You may need an MLflow TOKEN to load a "Prediction Service". This can be regenerated on [dagshub](https://dagshub.com/). Details will be highlighted at the end.
 
-### STEP 01- Clone repo, create and activate after  a environment opening the repository
+
+### STEP 01- Clone repo, create and activate a environment after clone and open the repo
 Clone the repository: 
 https://github.com/trongdang10/mlops-project
 
-```bash
-# assuming you already have an environment
-```
 
 ### STEP 02- install the requirements
 ```bash
@@ -68,7 +68,7 @@ open up you local host and port
 ### dagshub
 [dagshub](https://dagshub.com/)
 
-Firstly, you need to have following infors before hand:
+Firstly, you need to have the following infors beforehand:
 MLFLOW_TRACKING_URI=https://dagshub.com/<user-name>/<repo-name>.mlflow \
 MLFLOW_TRACKING_USERNAME=<your-user-name> \
 MLFLOW_TRACKING_PASSWORD=<your-token> \
