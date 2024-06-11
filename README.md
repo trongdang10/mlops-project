@@ -26,10 +26,11 @@ My workflows will proceed as follows:
         8. Updating `main.py` to run all stages in sequence
 6. Update `prediction.py` to make predictions using the trained model from `stage_04_model_trainer.py`.
 7. Finally, integrate Training- and Prediction-pipeline into `app.py`, which will perform training and prediction on an web app
-    *note: **@app.route('/train',methods=['GET'])  # route to train the pipeline** will re-execute the training pipeline, which will be used for the prediction.
+    *note*: `@app.route('/train',methods=['GET'])` will re-execute the training pipeline, which will be used for the prediction.
 
+**General note:** This project does not perform Exploratory Data Analysis because the main purpose is to show the ml traning pipeline and to show its deployment on an web app.
 
-### DVC tracking Pipeline is displaying in a remote repo on [dagshub](https://dagshub.com/trongdang10/mlops-wine-quality)
+### Tracking Pipeline by DVC and Experiments by MLflow are displaying in a remote repo on [dagshub](https://dagshub.com/trongdang10/mlops-project)
 
 # How to run?
 ##### Note: You may need an MLflow TOKEN to load a "Prediction Service". This can be regenerated on [dagshub](https://dagshub.com/). Details will be highlighted at the end.
