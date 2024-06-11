@@ -132,27 +132,30 @@ stages:
   model_evaluation:
     cmd: python src/mlProject/pipeline/stage_05_model_evaluation.py
     deps:
+    - path: artifacts/data_transformation/test.csv
+      hash: md5
+      md5: c8e1d67ad3451b9beb842a9d51c15846
+      size: 23943
+    - path: artifacts/model_trainer/model.joblib
+      hash: md5
+      md5: ede3966803ed2fc16f75e12682f36194
+      size: 1279
+    - path: params.yaml
+      hash: md5
+      md5: 4607fbf987fdf2e49eb9747293a35307
+      size: 42
     - path: src/mlProject/components/model_evaluation.py
       hash: md5
       md5: 2d093890bb9b776c69cad81fb93e285c
       size: 2260
-    - path: src/mlProject/config/configuration.py
-      hash: md5
-      md5: 41171dc06eba31f3ed6d74824d185508
-      size: 3595
-    - path: src/mlProject/entity/config_entity.py
-      hash: md5
-      md5: 870090fbd5eb1336b0b45a106d7b5674
-      size: 903
     - path: src/mlProject/pipeline/stage_05_model_evaluation.py
       hash: md5
       md5: f105b51d08de6d1dba0cc45ebf6bae51
       size: 1138
-    - path: src/mlProject/utils/common.py
-      hash: md5
-      md5: d2cb33c84a4098a5435bc3ee57587327
-      size: 2960
     params:
+      params.yaml:
+        ElasticNet.alpha: 0.2
+        ElasticNet.l1_ratio: 0.1
       config/config.yaml:
         model_evaluation.metric_file_name: artifacts/model_evaluation/metrics.json
         model_evaluation.model_path: artifacts/model_trainer/model.joblib
