@@ -24,9 +24,10 @@ My workflows will proceed as follows:
         6. Updating components in `src/mlProject/components`
         7. Updating the pipeline in `src/mlProject/pipeline`
         8. Updating `main.py` to run all stages in sequence
+    - Along each stage, tracking with DVC will be created. 
 6. Update `prediction.py` to make predictions using the trained model from `stage_04_model_trainer.py`.
-7. Finally, integrate Training- and Prediction-pipeline into `app.py`, which will perform training and prediction on an web app
-    *note*: `@app.route('/train',methods=['GET'])` will re-execute the training pipeline, which will be used for the prediction.
+7. Finally, integrate Training- and Prediction-pipeline into `app.py`, which will perform training and prediction on an web app.
+        *note*: `@app.route('/train',methods=['GET'])` will re-execute the training pipeline, which will be used for the prediction.
 
 **General note:** This project does not perform Exploratory Data Analysis because the main purpose is to show the ml traning pipeline and to show its deployment on an web app.
 
@@ -62,9 +63,10 @@ open up you local host and port
 
 
 #### 
-
+## DVC
+[DVC Documentation](https://dvc.org/doc/start/data-pipelines/data-pipelines)
 ## MLflow
-[Documentation](https://mlflow.org/docs/latest/index.html)
+[MLflow Documentation](https://mlflow.org/docs/latest/index.html)
 
 ### dagshub
 [dagshub](https://dagshub.com/)
