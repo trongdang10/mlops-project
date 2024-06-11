@@ -2,7 +2,7 @@
 
 ## Workflows
 
-My workflows will proceed as follows:
+The workflows will proceed as follows:
 
 1. Create `setup.py` using `setuptools`, facilitating easier management of dependencies from `./src`.
 2. Implement logging in `./src/mlProject/__init__.py`, ensuring that each executed `.py` file is logged in the `/logs` directory for easier tracking.
