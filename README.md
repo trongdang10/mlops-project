@@ -17,8 +17,8 @@ My workflows will proceed as follows:
         - `stage_05_model_evaluation.py`
     - For each stage, the workflow includes:
         1. Updating `config/config.yaml`
-        2. Updating `schema.yaml`
-        3. Updating `params.yaml`
+        2. Updating `schema.yaml` #__ this will be only in stage_02_04_05
+        3. Updating `params.yaml` #__ this will be only in stage_04_05
         4. Updating `src/mlProject/entity/config_entity.py`
         5. Updating the configuration manager in `src/mlProject/config/configuration.py`
         6. Updating components in `src/mlProject/components`
