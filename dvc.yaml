@@ -7,7 +7,6 @@ stages:
     - src/mlProject/entity/config_entity.py
     - src/mlProject/utils/common.py
     - config/config.yaml
-    - artifacts/data_ingestion/data.zip
     params:
     - config/config.yaml:
       - data_ingestion.local_data_file
@@ -63,22 +62,17 @@ stages:
   model_evaluation:
     cmd: python src/mlProject/pipeline/stage_05_model_evaluation.py
     deps:
-    - artifacts/data_transformation/test.csv
-    - artifacts/model_trainer/model.joblib
     - src/mlProject/components/model_evaluation.py
+    - src/mlProject/config/configuration.py
+    - src/mlProject/entity/config_entity.py
     - src/mlProject/pipeline/stage_05_model_evaluation.py
-    - params.yaml
-    - config/config.yaml
+    - src/mlProject/utils/common.py
     params:
-    - params.yaml:
-      - ElasticNet.alpha
-      - ElasticNet.l1_ratio
-    - schema.yaml:
-      - TARGET_COLUMN.name
     - config/config.yaml:
       - model_evaluation.metric_file_name
       - model_evaluation.model_path
       - model_evaluation.root_dir
       - model_evaluation.test_data_path
-    outs:
-    - artifacts/model_evaluation/metrics.json
+    metrics:
+    - artifacts/model_evaluation/metrics.json:
+        cache: false

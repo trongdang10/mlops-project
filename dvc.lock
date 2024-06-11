@@ -3,6 +3,10 @@ stages:
   data_ingestion:
     cmd: python src/mlProject/pipeline/stage_01_data_ingestion.py
     deps:
+    - path: config/config.yaml
+      hash: md5
+      md5: fe94cb9afdc9b9c99ec71d9e48f83e3e
+      size: 1016
     - path: src/mlProject/components/data_ingestion.py
       hash: md5
       md5: 58713ba570e42c4000438e6731a21b3a
@@ -41,6 +45,10 @@ stages:
       hash: md5
       md5: 6a883fd98624e18c0b7ce251f4fab4fb
       size: 100951
+    - path: config/config.yaml
+      hash: md5
+      md5: fe94cb9afdc9b9c99ec71d9e48f83e3e
+      size: 1016
     - path: schema.yaml
       hash: md5
       md5: 4f468903278f2ec0b2ae9fc320f89490
@@ -70,6 +78,10 @@ stages:
       hash: md5
       md5: 6a883fd98624e18c0b7ce251f4fab4fb
       size: 100951
+    - path: config/config.yaml
+      hash: md5
+      md5: fe94cb9afdc9b9c99ec71d9e48f83e3e
+      size: 1016
     - path: src/mlProject/components/data_transformation.py
       hash: md5
       md5: 639a30c517caa1f73267b5d59e0fdf02
@@ -85,19 +97,19 @@ stages:
     outs:
     - path: artifacts/data_transformation/test.csv
       hash: md5
-      md5: 3d25a7886a4e9af03152ad0eccd89aa5
-      size: 23780
+      md5: c8e1d67ad3451b9beb842a9d51c15846
+      size: 23943
     - path: artifacts/data_transformation/train.csv
       hash: md5
-      md5: e9df9e2ee7f0d240d5f5ab06d1b4a9c3
-      size: 71452
+      md5: 456e4456d28e8d9848057e599d7b587f
+      size: 71289
   model_trainer:
     cmd: python src/mlProject/pipeline/stage_04_model_trainer.py
     deps:
     - path: artifacts/data_transformation/train.csv
       hash: md5
-      md5: e9df9e2ee7f0d240d5f5ab06d1b4a9c3
-      size: 71452
+      md5: 456e4456d28e8d9848057e599d7b587f
+      size: 71289
     - path: src/mlProject/components/model_trainer.py
       hash: md5
       md5: 57eff832f2533bf7747ddd549587922c
@@ -115,40 +127,39 @@ stages:
     outs:
     - path: artifacts/model_trainer/model.joblib
       hash: md5
-      md5: a1009c6af9b24f045b424232dcc24d38
+      md5: ede3966803ed2fc16f75e12682f36194
       size: 1279
   model_evaluation:
     cmd: python src/mlProject/pipeline/stage_05_model_evaluation.py
     deps:
-    - path: artifacts/data_transformation/test.csv
-      hash: md5
-      md5: 3d25a7886a4e9af03152ad0eccd89aa5
-      size: 23780
-    - path: artifacts/model_trainer/model.joblib
-      hash: md5
-      md5: a1009c6af9b24f045b424232dcc24d38
-      size: 1279
     - path: src/mlProject/components/model_evaluation.py
       hash: md5
       md5: 2d093890bb9b776c69cad81fb93e285c
       size: 2260
+    - path: src/mlProject/config/configuration.py
+      hash: md5
+      md5: 41171dc06eba31f3ed6d74824d185508
+      size: 3595
+    - path: src/mlProject/entity/config_entity.py
+      hash: md5
+      md5: 870090fbd5eb1336b0b45a106d7b5674
+      size: 903
     - path: src/mlProject/pipeline/stage_05_model_evaluation.py
       hash: md5
       md5: f105b51d08de6d1dba0cc45ebf6bae51
       size: 1138
+    - path: src/mlProject/utils/common.py
+      hash: md5
+      md5: d2cb33c84a4098a5435bc3ee57587327
+      size: 2960
     params:
-      params.yaml:
-        ElasticNet.alpha: 0.5
-        ElasticNet.l1_ratio: 0.7
       config/config.yaml:
         model_evaluation.metric_file_name: artifacts/model_evaluation/metrics.json
         model_evaluation.model_path: artifacts/model_trainer/model.joblib
         model_evaluation.root_dir: artifacts/model_evaluation
         model_evaluation.test_data_path: artifacts/data_transformation/test.csv
-      schema.yaml:
-        TARGET_COLUMN.name: quality
     outs:
     - path: artifacts/model_evaluation/metrics.json
       hash: md5
-      md5: 98b8485a9b8d1eb1597c33c9290cb15a
+      md5: 71064d36e860bca628ba4f4c2795d69c
       size: 99
