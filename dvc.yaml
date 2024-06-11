@@ -62,11 +62,10 @@ stages:
   model_evaluation:
     cmd: python src/mlProject/pipeline/stage_05_model_evaluation.py
     deps:
+    - artifacts/data_transformation/test.csv
+    - artifacts/model_trainer/model.joblib
     - src/mlProject/components/model_evaluation.py
-    - src/mlProject/config/configuration.py
-    - src/mlProject/entity/config_entity.py
     - src/mlProject/pipeline/stage_05_model_evaluation.py
-    - src/mlProject/utils/common.py
     params:
     - config/config.yaml:
       - model_evaluation.metric_file_name
