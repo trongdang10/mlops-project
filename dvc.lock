@@ -134,8 +134,8 @@ stages:
       size: 854
     params:
       params.yaml:
-        ElasticNet.alpha: 0.06
-        ElasticNet.l1_ratio: 0.07
+        ElasticNet.alpha: 0.6
+        ElasticNet.l1_ratio: 0.03
       config/config.yaml:
         model_trainer.model_name: model.joblib
         model_trainer.root_dir: artifacts/model_trainer
@@ -147,7 +147,7 @@ stages:
     outs:
     - path: artifacts/model_trainer/model.joblib
       hash: md5
-      md5: 4a6d363ef9bb8461f000741f27aaf3a5
+      md5: 46973865f4861b095f92cc62fd217050
       size: 1279
   model_evaluation:
     cmd: python src/mlProject/pipeline/stage_05_model_evaluation.py
@@ -158,12 +158,12 @@ stages:
       size: 23943
     - path: artifacts/model_trainer/model.joblib
       hash: md5
-      md5: 4a6d363ef9bb8461f000741f27aaf3a5
+      md5: 46973865f4861b095f92cc62fd217050
       size: 1279
     - path: params.yaml
       hash: md5
-      md5: c73b967145b75d5474875e6fa8e1b502
-      size: 44
+      md5: 94e3dc28d2c72d381c0f9f53cb317b9b
+      size: 43
     - path: schema.yaml
       hash: md5
       md5: 4f468903278f2ec0b2ae9fc320f89490
@@ -178,8 +178,8 @@ stages:
       size: 1138
     params:
       params.yaml:
-        ElasticNet.alpha: 0.06
-        ElasticNet.l1_ratio: 0.07
+        ElasticNet.alpha: 0.6
+        ElasticNet.l1_ratio: 0.03
       config/config.yaml:
         model_evaluation.metric_file_name: artifacts/model_evaluation/metrics.json
         model_evaluation.model_path: artifacts/model_trainer/model.joblib
@@ -191,5 +191,5 @@ stages:
     outs:
     - path: artifacts/model_evaluation/metrics.json
       hash: md5
-      md5: e059c9bed0247d03691d35e380988d48
-      size: 100
+      md5: fb8032cb1de45ef9ed05ea35052a657d
+      size: 99
