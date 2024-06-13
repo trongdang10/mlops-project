@@ -88,14 +88,10 @@ stages:
       hash: md5
       md5: 6a883fd98624e18c0b7ce251f4fab4fb
       size: 100951
-    - path: config/config.yaml
-      hash: md5
-      md5: fe94cb9afdc9b9c99ec71d9e48f83e3e
-      size: 1016
     - path: src/mlProject/components/data_transformation.py
       hash: md5
-      md5: 639a30c517caa1f73267b5d59e0fdf02
-      size: 1168
+      md5: 0d5cfd71b44be28e17593ab4e2cfc712
+      size: 888
     - path: src/mlProject/pipeline/stage_03_data_transformation.py
       hash: md5
       md5: f99dc96f8d75838e2134591b6553c54c
@@ -107,19 +103,19 @@ stages:
     outs:
     - path: artifacts/data_transformation/test.csv
       hash: md5
-      md5: c8e1d67ad3451b9beb842a9d51c15846
-      size: 23943
+      md5: 50e8f38f5d01e6996de4acef8fd4fbeb
+      size: 23898
     - path: artifacts/data_transformation/train.csv
       hash: md5
-      md5: 456e4456d28e8d9848057e599d7b587f
-      size: 71289
+      md5: 1370f38f98058b5c7689c996e89ecfe6
+      size: 71334
   model_trainer:
     cmd: python src/mlProject/pipeline/stage_04_model_trainer.py
     deps:
     - path: artifacts/data_transformation/train.csv
       hash: md5
-      md5: 456e4456d28e8d9848057e599d7b587f
-      size: 71289
+      md5: 1370f38f98058b5c7689c996e89ecfe6
+      size: 71334
     - path: schema.yaml
       hash: md5
       md5: 4f468903278f2ec0b2ae9fc320f89490
@@ -134,8 +130,8 @@ stages:
       size: 854
     params:
       params.yaml:
-        ElasticNet.alpha: 0.6
-        ElasticNet.l1_ratio: 0.03
+        ElasticNet.alpha: 0.9
+        ElasticNet.l1_ratio: 0.8
       config/config.yaml:
         model_trainer.model_name: model.joblib
         model_trainer.root_dir: artifacts/model_trainer
@@ -147,23 +143,23 @@ stages:
     outs:
     - path: artifacts/model_trainer/model.joblib
       hash: md5
-      md5: 46973865f4861b095f92cc62fd217050
+      md5: d3caa1e259ecb2531f264d7c5e9b18c5
       size: 1279
   model_evaluation:
     cmd: python src/mlProject/pipeline/stage_05_model_evaluation.py
     deps:
     - path: artifacts/data_transformation/test.csv
       hash: md5
-      md5: c8e1d67ad3451b9beb842a9d51c15846
-      size: 23943
+      md5: 50e8f38f5d01e6996de4acef8fd4fbeb
+      size: 23898
     - path: artifacts/model_trainer/model.joblib
       hash: md5
-      md5: 46973865f4861b095f92cc62fd217050
+      md5: d3caa1e259ecb2531f264d7c5e9b18c5
       size: 1279
     - path: params.yaml
       hash: md5
-      md5: 94e3dc28d2c72d381c0f9f53cb317b9b
-      size: 43
+      md5: 711de7613dd105339fe282529e9d0ad0
+      size: 42
     - path: schema.yaml
       hash: md5
       md5: 4f468903278f2ec0b2ae9fc320f89490
@@ -178,8 +174,8 @@ stages:
       size: 1138
     params:
       params.yaml:
-        ElasticNet.alpha: 0.6
-        ElasticNet.l1_ratio: 0.03
+        ElasticNet.alpha: 0.9
+        ElasticNet.l1_ratio: 0.8
       config/config.yaml:
         model_evaluation.metric_file_name: artifacts/model_evaluation/metrics.json
         model_evaluation.model_path: artifacts/model_trainer/model.joblib
@@ -191,5 +187,5 @@ stages:
     outs:
     - path: artifacts/model_evaluation/metrics.json
       hash: md5
-      md5: fb8032cb1de45ef9ed05ea35052a657d
-      size: 99
+      md5: 7de1a322a51ec98edc47d6e81f3f3b3b
+      size: 101
