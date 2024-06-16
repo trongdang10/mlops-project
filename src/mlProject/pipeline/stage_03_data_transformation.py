@@ -12,7 +12,6 @@ class DataTransformationTrainingPipeline:
     def __init__(self):
         pass
 
-
     def main(self):
         try:
             with open(Path("artifacts/data_validation/status.txt"), "r") as f:
@@ -29,9 +28,6 @@ class DataTransformationTrainingPipeline:
 
         except Exception as e:
             print(e)
-
-
-
 
 
 if __name__ == '__main__':

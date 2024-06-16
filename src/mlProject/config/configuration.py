@@ -6,8 +6,6 @@ from mlProject.entity.config_entity import (DataIngestionConfig,
                                             ModelTrainerConfig,
                                             ModelEvaluationConfig)
 
-
-
 class ConfigurationManager:
     def __init__(
         self,
@@ -21,8 +19,6 @@ class ConfigurationManager:
 
         create_directories([self.config.artifacts_root])
 
-
-    
     def get_data_ingestion_config(self) -> DataIngestionConfig:
         config = self.config.data_ingestion
 
@@ -53,7 +49,6 @@ class ConfigurationManager:
 
         return data_validation_config
     
-
 
     def get_data_transformation_config(self) -> DataTransformationConfig:
         config = self.config.data_transformation
@@ -89,8 +84,7 @@ class ConfigurationManager:
 
         return model_trainer_config
     
-
-
+    
     def get_model_evaluation_config(self) -> ModelEvaluationConfig:
         config = self.config.model_evaluation
         params = self.params.ElasticNet
