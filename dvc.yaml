@@ -7,7 +7,6 @@ stages:
     - src/mlProject/config/configuration.py
     - src/mlProject/entity/config_entity.py
     - src/mlProject/utils/common.py
-    - config/config.yaml
     params:
     - config/config.yaml:
       - data_ingestion.local_data_file
@@ -23,7 +22,6 @@ stages:
     - artifacts/data_ingestion/winequality-red.csv
     - src/mlProject/components/data_validation.py
     - src/mlProject/pipeline/stage_02_data_validation.py
-    - schema.yaml
     params:
     - config/config.yaml:
       - data_validation.STATUS_FILE
@@ -52,7 +50,6 @@ stages:
     - artifacts/data_transformation/train.csv
     - src/mlProject/components/model_trainer.py
     - src/mlProject/pipeline/stage_04_model_trainer.py
-    - schema.yaml
     params:
     - config/config.yaml:
       - model_trainer.model_name
@@ -73,8 +70,6 @@ stages:
     - artifacts/model_trainer/model.joblib
     - src/mlProject/components/model_evaluation.py
     - src/mlProject/pipeline/stage_05_model_evaluation.py
-    - params.yaml
-    - schema.yaml
     params:
     - config/config.yaml:
       - model_evaluation.metric_file_name
