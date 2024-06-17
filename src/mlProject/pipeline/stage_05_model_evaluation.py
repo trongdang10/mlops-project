@@ -5,10 +5,6 @@ from mlProject import logger
 
 STAGE_NAME = "Model evaluation stage"
 
-os.environ["MLFLOW_TRACKING_URI"]="https://dagshub.com/trongdang10/mlops-wine-quality.mlflow"
-os.environ["MLFLOW_TRACKING_USERNAME"]="trongdang10"
-os.environ["MLFLOW_TRACKING_PASSWORD"]="476952ea6ed76a9d0e04ada75e4f70e65638702a"
-
 class ModelEvaluationTrainingPipeline:
     def __init__(self):
         pass
