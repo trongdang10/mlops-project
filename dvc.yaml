@@ -31,3 +31,17 @@ stages:
       - COLUMNS
     outs:
     - artifacts/data_validation/status.txt
+  data_transformation:
+    cmd: python src/mlProject/pipeline/stage_03_data_transformation.py
+    deps:
+    - artifacts/data_ingestion/winequality-red.csv
+    - src/mlProject/components/data_transformation.py
+    - src/mlProject/pipeline/stage_03_data_transformation.py
+    - artifacts/data_validation/status.txt
+    params:
+    - config/config.yaml:
+      - data_transformation.root_dir
+      - data_transformation.data_path
+    outs:
+    - artifacts/data_transformation/test.csv
+    - artifacts/data_transformation/train.csv
