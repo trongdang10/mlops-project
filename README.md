@@ -31,15 +31,14 @@ The workflows will proceed as follows:
 
 **General note:** This project does not perform Exploratory Data Analysis because the main purpose is to show the ml traning pipeline and to show its deployment on an web app.
 
-### Tracking Pipeline by DVC and Experiments by MLflow are displaying in a remote repo on [dagshub](https://dagshub.com/trongdang10/mlops-project)
+### Tracking Pipeline by DVC and Experiments by MLflow are displaying in a remote repo on dagshub (https://dagshub.com/trongdang10/mlops-wine-quality)
 
 # How to run?
-##### Note: You may need an MLflow TOKEN to load a "Prediction Service". This can be regenerated on [dagshub](https://dagshub.com/). Details will be highlighted at the end.
 
 
 ### STEP 01- Clone repo, create and activate a environment after clone and open the repo
 Clone the repository: 
-https://github.com/trongdang10/mlops-project
+https://dagshub.com/trongdang10/mlops-wine-quality
 
 
 ### STEP 02- install the requirements
@@ -67,6 +66,9 @@ open up you local host and port
 [DVC Documentation](https://dvc.org/doc/start/data-pipelines/data-pipelines)
 ## MLflow
 [MLflow Documentation](https://mlflow.org/docs/latest/index.html)
+
+
+##### Note: You may need an MLflow TOKEN to load a "Prediction Service". This can be regenerated on dagshub (https://dagshub.com/). 
 
 ### dagshub
 [dagshub](https://dagshub.com/)
